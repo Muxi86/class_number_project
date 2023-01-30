@@ -9,7 +9,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return self.value
 
     def is_odd(self):
         """
@@ -18,7 +18,7 @@ class Number:
         returns: bool
 
         """
-        pass
+        return self.value%2 != 0
 
     def is_even(self):
         """
@@ -26,7 +26,7 @@ class Number:
 
         returns: bool
         """
-        pass
+        return self.value%2 == 0
 
     def is_prime(self):
         """
@@ -34,7 +34,8 @@ class Number:
 
         returns: bool
         """
-        pass
+        d = self.get_digits()
+        return d==d[::-1]
 
     def get_divisors(self):
         """
@@ -50,7 +51,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return len(str(self.value))
 
     def get_sum(self):
         """
@@ -58,7 +59,12 @@ class Number:
 
         returns: int
         """
-        pass
+        s=0
+        n = self.value
+        while n:
+            s+=n%10
+            n//=10
+        return s
 
     def get_reverse(self):
         """
@@ -74,7 +80,12 @@ class Number:
 
         returns: bool
         """
-        pass
+        d = self.get_digits()
+        n = len(d)
+        if n%2==0:
+            return d[:n//2]==d[:n//2-1:-1]
+        else:
+            return d[:n//2]==d[:n//2:-1]
 
     def get_digits(self):
         """
@@ -82,7 +93,12 @@ class Number:
 
         returns: list
         """
-        pass
+        digits = []
+        n = self.value
+        while n:
+            digits.append(n%10)
+            n//=10
+        return digits
 
     def get_max(self):
         """
@@ -90,7 +106,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return max(self.get_digits())
 
     def get_min(self):
         """
@@ -98,7 +114,7 @@ class Number:
 
         returns: int
         """
-        pass
+        return min(self.get_digits())
 
     def get_average(self):
         """
@@ -122,7 +138,7 @@ class Number:
 
         returns: list
         """
-        pass
+        return self.get_max() - self.get_min()
 
     def get_frequency(self):
         """
@@ -134,4 +150,4 @@ class Number:
     
 
 # Create a new instance of Number
-number = Number(3)
+number = Number(25496)
